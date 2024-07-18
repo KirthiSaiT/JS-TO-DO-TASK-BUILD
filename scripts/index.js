@@ -43,7 +43,7 @@ const state = {
           onclick='openTask.apply(this, arguments)'>
             Open Task
           </button>
-          <button   type='button' class='btn btn-outline-primary float-right ms-5 done_button' data-bs-toggle='modal'>Done</button>
+          <button onclick="Done()"  type='button' class='btn btn-outline-primary float-right ms-5 done_button' data-bs-toggle='modal'>Done</button>
   
         </div>
         
@@ -249,4 +249,6 @@ const state = {
       taskContents.insertAdjacentHTML("beforeend", htmlTaskContent(cardData))
     );
   };
+  
+  
   
