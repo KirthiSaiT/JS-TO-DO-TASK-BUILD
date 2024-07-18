@@ -178,13 +178,13 @@ const state = {
     taskDescription = parentNode.childNodes[3].childNodes[5];
     taskType = parentNode.childNodes[3].childNodes[7].childNodes[1];
     submitButton = parentNode.childNodes[5].childNodes[1];
-    // console.log(taskTitle);
+   
   
     taskTitle.setAttribute("contenteditable", "true");
     taskDescription.setAttribute("contenteditable", "true");
     taskType.setAttribute("contenteditable", "true");
   
-    // needs to be implemented
+    
     submitButton.setAttribute("onclick", "saveEdit.apply(this, arguments)");
     submitButton.removeAttribute("data-bs-toggle");
     submitButton.removeAttribute("data-bs-target");

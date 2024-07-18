@@ -20,9 +20,3 @@ body{
     position: relative;
     left:50px;
 }
-/* 
-@media (min-width: 780px){
-    .add__new__btn__mobile__only{
-        display: none;
-    }
-} */
