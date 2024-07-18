@@ -2,19 +2,11 @@ const state = {
     taskList: [],
   };
   
-  // dom manipulations
+ 
   const taskModal = document.querySelector(".task__modal__body");
   const taskContents = document.querySelector(".task__contents");
   
-  // console.log(taskModel);
   
-  // getElementById(), getElemByClass(), getElemByTagName()
-  //      >> these r used when we want to process thes user data from html in js
-  
-  // querySelector()
-  //      >> these r used from js to insert any kind of html txt which would be reflected on the UI
-  
-  // to create a card on home pg
   const htmlTaskContent = ({ id, title, description, type, url }) => `
             
     <div class='col-md-6 col-lg-4 mt-3' id=${id} key=${id}>
@@ -59,7 +51,7 @@ const state = {
     </div>
   `;
   
-  // Dynamic modals(cards) on our home page/ui
+  
   const htmlModalContent = ({ id, title, description, url }) => {
     const date = new Date(parseInt(id));
     return `
@@ -76,7 +68,7 @@ const state = {
   </div>`;
   };
   
-  // here we will be updating our local storage (i.e., the modals/cards which we see on our ui)
+  
   
   const updateLocalStorage = () => {
     localStorage.setItem(
@@ -87,7 +79,7 @@ const state = {
     );
   };
   
-  // to get data or card or modals on ur ui from local storage (Browsers storage)
+  
   const loadInitialData = () => {
     const localStorageCopy = JSON.parse(localStorage.task);
   
@@ -117,53 +109,53 @@ const state = {
       })
     );
   
-    // updated task list - for 1st go
+   
     state.taskList.push({ ...input, id });
   
-    // update the same on localStorage too
+    
     updateLocalStorage();
   };
   
-  // opens new modal on our ui when user clicks open task
+  
   const openTask = (e) => {
-    // pop up the current one
+    
     if (!e) e = window.event;
   
-    // find the crt card opened
+    
     const getTask = state.taskList.find(({ id }) => id === e.target.id);
     taskModal.innerHTML = htmlModalContent(getTask);
-    // console.log(getTask);
+    
   };
   
-  // delete operation
+  
   const deleteTask = (e) => {
     if (!e) e = window.event;
   
     const targetID = e.target.getAttribute("name");
-    // console.log(targetID);
+    
   
     const type = e.target.tagName;
-    // console.log(type)
+    
   
     const removeTask = state.taskList.filter(({ id }) => id !== targetID);
-    // console.log(removeTask);
+    
   
     state.taskList = removeTask;
     updateLocalStorage();
   
     if (type === "BUTTON") {
-      // console.log(e.target.parentNode.parentNode.parentNode);
+      
       return e.target.parentNode.parentNode.parentNode.parentNode.removeChild(
         e.parentNode.parentNode.parentNode
       );
     }
-    // console.log(e.target.parentNode.parentNode.parentNode.parentNode);
+    
     return e.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(
       e.target.parentNode.parentNode.parentNode.parentNode
     );
   };
   
-  // edit operation
+  
   const editTask = (e) => {
     if (!e) e = window.event;
   
